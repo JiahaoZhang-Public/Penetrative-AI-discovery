@@ -13,6 +13,7 @@ To evaluate large models' ability to detect anomalies based on their understandi
 # 3. Potential Datasets
 ## 3.1. [Numenta Anomaly Benchmark (NAB)](https://github.com/numenta/NAB)
 ### 3.1.1 Description
+The dataset  contains both real and synthetic data ,timestamp(continuous) and values with [labels](https://github.com/numenta/NAB/tree/master/labels) 
 For further details, visit: https://github.com/numenta/NAB/blob/master/data/README.md
 ### 3.1.2 Problem
 This dataset presents very rare positive cases, posing a challenge for anomaly analysis.
@@ -24,6 +25,35 @@ This dataset presents very rare positive cases, posing a challenge for anomaly a
 ### [S5 - A Labeled Anomaly Detection Dataset](https://webscope.sandbox.yahoo.com/catalog.php?datatype=s&did=70)
 #### Description
 This dataset is partly synthetic (simulated) and partly based on real traffic to Yahoo services. It includes timestamps, characters, and anomaly labels (1 for positive). The real part of the dataset consists of time series data for various Yahoo services metrics.
+
+
+1. A1Benchmark/real_(int).csv
+2. A2Benchmark/synthetic_(int).csv
+3. A3Benchmark/A3Benchmark-TS(int).csv
+4. A4Benchmark/A4Benchmark-TS(int).csv
+
+A1Benchmark is based on the real production traffic to some of the Yahoo! properties.
+The other 3 benchmarks are based on synthetic time-series. A2 and A3 Benchmarks include outliers,
+while the A4Benchmark includes change-point anomalies. The bechmarks based on real-data have property
+and geos removed. Fields in each data file are delimited with (",") characters.
+
+The fields are:
+    
+    0 timestamp(with incresement of 1,represents 1 hour)
+    1 value
+    2 is_anomaly(boolean)
+The is_anomaly field is a boolean indicating if the current value at a given timestamp is considered an anomaly.
+
+Snippet:
+   1,83,0
+   2,605,0
+   3,181,0
+   4,37,0
+   5,45,1
+
+#### Problem:
+The information in the A1Benchmark may be meaningless（since we do not know the physical meaning of the specific value） to LLMs and may be not useful to test the general literacy for LLMs.
+   
 
 ## 3.4. [Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
 ### 3.4.1 Description
@@ -43,5 +73,18 @@ Characteristics of these datasets are straightforward, with predefined standards
 Released in April 2022 (5th edition), with measurements mostly ranging from 2010 to 2019. The dataset covers a broad time interval, offering only ten years of data points for each location.
 
 ## 3.6 [PhysioNet](https://physionet.org/)
-### Research Resource for Complex Physiologic Signals
-(Not yet explored)
+### Descrpition:
+### Options:
+1. [Sleep Stages Detection](https://archive.physionet.org/physiobank/database/challenge/2018/)
+
+
+# 4. Summary and Conclusion:
+## 4.1 Classification of the dataset
+1. Dataset with is_anomaly labels
+These dataset are labeled (if anomaly or not),the amount of possitive data points(anomaly) are always fewer than the normal ones(without anomalies).
+2. Dataset with physical meanings
+
+
+
+
+# Notes:
