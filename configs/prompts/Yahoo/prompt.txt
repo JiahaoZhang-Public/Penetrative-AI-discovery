@@ -1,0 +1,1 @@
+Analyze the following time-series data points. Timestamp: {timestamp}, Value: {value}. Is there anything unusual about this data point? If this is an anomaly, could you explain why it might be considered one?
