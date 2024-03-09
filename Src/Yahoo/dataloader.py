@@ -4,9 +4,20 @@ import re
 
 
 class DataLoader:
-    def __init__(self, folder_path):
+    def __init__(self, folder_path, file_index=None):
+        """
+        Initialize the DataLoader with a folder path and optionally specify the index of the file to load.
+
+        :param folder_path: The path to the folder containing the CSV files.
+        :param file_index: The index of the file to load, based on the matching pattern. If None, all matching files are loaded.
+        """
         self.folder_path = folder_path
         self.data_files = self.find_matching_files()
+
+        # If a file_index is specified, only load the file at that index; otherwise, load all matching files.
+        if file_index is not None and 0 <= file_index < len(self.data_files):
+            self.data_files = [self.data_files[file_index]]
+
         self.data = self.load_data()
 
     def find_matching_files(self):
@@ -24,9 +35,8 @@ class DataLoader:
         data_list = []
         for file_path in self.data_files:
             try:
-                data = pd.read_csv(file_path, header=None, names=['timestamp', 'value', 'is_anomaly'])
-                data['is_anomaly'] = data['is_anomaly'].astype(int)  # 确保异常标记为整型
-                data['file'] = os.path.basename(file_path)  # 添加文件名作为一列，以便于识别
+                data = pd.read_csv(file_path)
+                data['file'] = os.path.basename(file_path)
                 data_list.append(data)
             except Exception as e:
                 print(f"Error loading file {file_path}: {e}")
@@ -42,4 +52,12 @@ class DataLoader:
             return self.data[file_index][start_index:start_index + batch_size]
         else:
             return None
+
+    def load_data_as_tuples(self):
+        """Convert 'timestamp' and 'value' columns in each DataFrame into a list of tuples."""
+        tuple_list = []
+        for data_frame in self.data:
+            tuples = list(zip(data_frame['timestamp'], data_frame['value']))
+            tuple_list.extend(tuples)
+        return tuple_list
 
