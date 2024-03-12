@@ -1,0 +1,8 @@
+Given a dataset of credit card transactions where the input variables are 'Time' and 'Amount'.
+The provided test dataset is a tuple list,(Time, Amount):
+{list}
+One feature in the credit card transaction dataset is 'Amount', which represents the transaction amount.
+The 'Time' feature in the represents the seconds elapsed between each transaction and the first transaction.
+
+Considering that the test dataset contains 30% positive (anomaly/fraudulent) and 70% negative (normal) transactions.
+Please return the fraud subset which you detected  based on your general knowledge in the same format-a tuple list,(Time, Amount)

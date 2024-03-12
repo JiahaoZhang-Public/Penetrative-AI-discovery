@@ -1,0 +1,12 @@
+Since the CreditCard dataset only contains 'Time' and 'Amount',
+and the physical meaning is albuminous ,so given a time series of (Time, Amount),
+it is nearly impossible to test or use the general knowledge of LLMs.
+
+
+I have access the Yahoo dataset,however,there is a big problem:
+The dataset contains only 3 useful categories(Time,Amount,anomaly)
+and other columns are PCA components of the properties which are from individual information and can not be shown to public.
+ And the proportion of the positive examples(anomaly) is small while the whole dataset is big,
+ How can I design a experiment to deal with these challenges. Up to now ,I have try this naive way but failed:
+ I randomly select a subset with 30% anomaly and 70% normal ,and build the dataset in time increasement oder.
+ However,since the yahoo dataset is lack of real world meaning, a LLM can not easily use its general knowledge.

@@ -1,7 +1,7 @@
 import configparser
 import os
 from Src.LLMs.GptBase import GPTBasedLLMs
-from Src.Yahoo.dataloader import DataLoader
+from Src.Dataloader.Yahoo.dataloader import DataLoader
 
 current_script_path = os.path.abspath(__file__)
 rootpath = os.path.dirname(os.path.dirname(current_script_path))

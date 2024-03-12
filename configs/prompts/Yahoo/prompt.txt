@@ -1,4 +1,4 @@
 Analyze the following time-series data points.The data is from Yahoo properties .The unit of the value represents 1 hour .\
 The provided data is a tuple list,(timestamp, value):
 {list}
-Is there anything unusual about this time-series? If there is any anomaly, could you find it ?
+Please find the anomalies based on your general knowledge.
