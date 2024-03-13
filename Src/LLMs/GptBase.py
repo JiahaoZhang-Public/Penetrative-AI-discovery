@@ -47,6 +47,10 @@ class GPTBasedLLMs(LLMsInterface):
             ]
         )
         return response.choices[0].message.content
+
+    def estimate_gpt4_tokens(self,prompt):
+        basic_tokens = prompt.split()
+        print('estimate_gpt4_tokens:',len(basic_tokens))
 if __name__ == '__main__':
     gpt = GPTBasedLLMs()
     print(gpt.evaluate(prompt='What is the whether today'))

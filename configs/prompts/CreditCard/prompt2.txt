@@ -9,6 +9,9 @@ Few-Shot Examples:
 Transaction Descriptions:
 {descriptions}
 
+Priori Knowledge:
+Among these transactions, 30% is anomalous.
+
 Based on the provided domain knowledge, few-shot examples, and transaction descriptions, please identify which transactions are likely to be anomalous or fraudulent. Consider factors such as unusual transaction amounts, suspicious timing patterns, or deviations from normal behavior.
 I need you to analysis all the transactions.
 For each transaction, provide a brief explanation of why you think it is anomalous . If you suspect a transaction to be fraudulent, please indicate the reasoning behind your suspicion.

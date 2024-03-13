@@ -1,0 +1,160 @@
+Analyze the following time-series data points representing financial transactions. The data is from credit card transactions, where each transaction is represented by a timestamp and a normalized transaction amount.
+
+Domain Knowledge:
+In financial transactions, anomalies can indicate fraudulent activities, such as unusually high amounts or transactions occurring at odd hours.
+
+Few-Shot Examples:
+Transaction at time 4462.0 has amount 239.93, with a normalized amount of 0.2872894297016846 - Fraudulent
+Transaction at time 20658.0 has amount 134.22, with a normalized amount of 0.1601837267185302 - Normal
+Transaction at time 30852.0 has amount 104.81, with a normalized amount of 0.12482114300143086 - Fraudulent
+Transaction at time 33733.0 has amount 71.4, with a normalized amount of 0.08464895932280833 - Normal
+Transaction at time 35906.0 has amount 9.13, with a normalized amount of 0.009775511921795906 - Fraudulent
+Transaction at time 35942.0 has amount 14.46, with a normalized amount of 0.016184303870525572 - Fraudulent
+Transaction at time 41227.0 has amount 459.07, with a normalized amount of 0.5507833635937331 - Fraudulent
+Transaction at time 50230.0 has amount 832.67, with a normalized amount of 1.0 - Normal
+Transaction at time 58222.0 has amount 270.0, with a normalized amount of 0.3234455974124352 - Fraudulent
+Transaction at time 58542.0 has amount 175.0, with a normalized amount of 0.20921759832625922 - Normal
+Transaction at time 93856.0 has amount 209.65, with a normalized amount of 0.25088075799295395 - Fraudulent
+Transaction at time 93860.0 has amount 78.0, with a normalized amount of 0.09258479925932162 - Fraudulent
+Transaction at time 93888.0 has amount 1.0, with a normalized amount of 0.0 - Fraudulent
+Transaction at time 112012.0 has amount 199.88, with a normalized amount of 0.23913331008693353 - Normal
+Transaction at time 131252.0 has amount 46.83, with a normalized amount of 0.055105991559152065 - Normal
+Transaction at time 143354.0 has amount 1.0, with a normalized amount of 0.0 - Fraudulent
+Transaction at time 151101.0 has amount 417.0, with a normalized amount of 0.5001983959984129 - Normal
+Transaction at time 152566.0 has amount 56.96, with a normalized amount of 0.06728630346170958 - Normal
+Transaction at time 158942.0 has amount 85.25, with a normalized amount of 0.10130219918958241 - Normal
+Transaction at time 170815.0 has amount 44.99, with a normalized amount of 0.0528935755768514 - Normal
+
+Transaction Descriptions:
+Transaction at time 4015.0 has amount 2.68, with a normalized amount of 0.00067
+Transaction at time 9956.0 has amount 22.58, with a normalized amount of 0.005645
+Transaction at time 11092.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 11629.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 15817.0 has amount 11.39, with a normalized amount of 0.0028475
+Transaction at time 16482.0 has amount 99.0, with a normalized amount of 0.02475
+Transaction at time 20706.0 has amount 6.48, with a normalized amount of 0.0016200000000000001
+Transaction at time 21419.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 29172.0 has amount 26.9, with a normalized amount of 0.006725
+Transaction at time 32528.0 has amount 0.76, with a normalized amount of 0.00019
+Transaction at time 33757.0 has amount 45.0, with a normalized amount of 0.01125
+Transaction at time 34687.0 has amount 19.02, with a normalized amount of 0.004755
+Transaction at time 34968.0 has amount 200.74, with a normalized amount of 0.050185
+Transaction at time 35422.0 has amount 29.0, with a normalized amount of 0.00725
+Transaction at time 36170.0 has amount 111.7, with a normalized amount of 0.027925000000000002
+Transaction at time 36769.0 has amount 26.2, with a normalized amount of 0.006549999999999999
+Transaction at time 38149.0 has amount 4.22, with a normalized amount of 0.001055
+Transaction at time 39080.0 has amount 4000.0, with a normalized amount of 1.0
+Transaction at time 40837.0 has amount 0.89, with a normalized amount of 0.00022250000000000001
+Transaction at time 41582.0 has amount 39.45, with a normalized amount of 0.009862500000000001
+Transaction at time 41991.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 44414.0 has amount 38.66, with a normalized amount of 0.009665
+Transaction at time 45533.0 has amount 4.99, with a normalized amount of 0.0012475000000000001
+Transaction at time 46925.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 48487.0 has amount 0.99, with a normalized amount of 0.0002475
+Transaction at time 48692.0 has amount 11.65, with a normalized amount of 0.0029125
+Transaction at time 48884.0 has amount 19.73, with a normalized amount of 0.0049325
+Transaction at time 49985.0 has amount 360.0, with a normalized amount of 0.09
+Transaction at time 50217.0 has amount 267.55, with a normalized amount of 0.0668875
+Transaction at time 50541.0 has amount 12.31, with a normalized amount of 0.0030775
+Transaction at time 51784.0 has amount 1.98, with a normalized amount of 0.000495
+Transaction at time 51849.0 has amount 150.0, with a normalized amount of 0.0375
+Transaction at time 52814.0 has amount 124.84, with a normalized amount of 0.03121
+Transaction at time 55618.0 has amount 130.44, with a normalized amount of 0.03261
+Transaction at time 56806.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 57196.0 has amount 23.0, with a normalized amount of 0.00575
+Transaction at time 57913.0 has amount 30.0, with a normalized amount of 0.0075
+Transaction at time 58828.0 has amount 364.99, with a normalized amount of 0.09124750000000001
+Transaction at time 59856.0 has amount 50.0, with a normalized amount of 0.0125
+Transaction at time 60508.0 has amount 3.58, with a normalized amount of 0.0008950000000000001
+Transaction at time 62813.0 has amount 2.1, with a normalized amount of 0.0005250000000000001
+Transaction at time 65385.0 has amount 1354.25, with a normalized amount of 0.3385625
+Transaction at time 66861.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 67764.0 has amount 7.2, with a normalized amount of 0.0018
+Transaction at time 68207.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 69502.0 has amount 79.64, with a normalized amount of 0.01991
+Transaction at time 69657.0 has amount 93.24, with a normalized amount of 0.023309999999999997
+Transaction at time 73748.0 has amount 19.99, with a normalized amount of 0.004997499999999999
+Transaction at time 74064.0 has amount 81.02, with a normalized amount of 0.020255
+Transaction at time 75182.0 has amount 3.61, with a normalized amount of 0.0009025
+Transaction at time 75904.0 has amount 48.5, with a normalized amount of 0.012125
+Transaction at time 77104.0 has amount 265.47, with a normalized amount of 0.06636750000000001
+Transaction at time 77310.0 has amount 2.49, with a normalized amount of 0.0006225
+Transaction at time 77627.0 has amount 106.9, with a normalized amount of 0.026725000000000002
+Transaction at time 77754.0 has amount 790.66, with a normalized amount of 0.19766499999999998
+Transaction at time 79171.0 has amount 68.0, with a normalized amount of 0.017
+Transaction at time 81919.0 has amount 9.99, with a normalized amount of 0.0024975
+Transaction at time 85124.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 86617.0 has amount 1.8, with a normalized amount of 0.00045
+Transaction at time 88320.0 has amount 199.94, with a normalized amount of 0.049985
+Transaction at time 89633.0 has amount 225.39, with a normalized amount of 0.056347499999999995
+Transaction at time 90841.0 has amount 3.58, with a normalized amount of 0.0008950000000000001
+Transaction at time 93879.0 has amount 30.31, with a normalized amount of 0.0075775
+Transaction at time 93965.0 has amount 11.4, with a normalized amount of 0.00285
+Transaction at time 94362.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 95883.0 has amount 126.0, with a normalized amount of 0.0315
+Transaction at time 102114.0 has amount 0.0, with a normalized amount of 0.0
+Transaction at time 102572.0 has amount 0.01, with a normalized amount of 2.5e-06
+Transaction at time 102625.0 has amount 7.59, with a normalized amount of 0.0018974999999999999
+Transaction at time 105260.0 has amount 11.27, with a normalized amount of 0.0028174999999999997
+Transaction at time 110547.0 has amount 0.76, with a normalized amount of 0.00019
+Transaction at time 118583.0 has amount 62.35, with a normalized amount of 0.0155875
+Transaction at time 122856.0 has amount 516.16, with a normalized amount of 0.12904
+Transaction at time 123525.0 has amount 45.51, with a normalized amount of 0.011377499999999999
+Transaction at time 123848.0 has amount 104.15, with a normalized amount of 0.0260375
+Transaction at time 124407.0 has amount 16.27, with a normalized amount of 0.0040675
+Transaction at time 128663.0 has amount 4.49, with a normalized amount of 0.0011225
+Transaction at time 133688.0 has amount 62.2, with a normalized amount of 0.015550000000000001
+Transaction at time 137651.0 has amount 20.0, with a normalized amount of 0.005
+Transaction at time 137688.0 has amount 17.76, with a normalized amount of 0.00444
+Transaction at time 140197.0 has amount 9.99, with a normalized amount of 0.0024975
+Transaction at time 141320.0 has amount 195.66, with a normalized amount of 0.048915
+Transaction at time 144495.0 has amount 0.89, with a normalized amount of 0.00022250000000000001
+Transaction at time 148916.0 has amount 1.98, with a normalized amount of 0.000495
+Transaction at time 149096.0 has amount 0.0, with a normalized amount of 0.0
+Transaction at time 149102.0 has amount 24.9, with a normalized amount of 0.006225
+Transaction at time 149582.0 has amount 1.1, with a normalized amount of 0.000275
+Transaction at time 150421.0 has amount 59.9, with a normalized amount of 0.014975
+Transaction at time 150494.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 152098.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 153669.0 has amount 258.29, with a normalized amount of 0.0645725
+Transaction at time 153738.0 has amount 20.0, with a normalized amount of 0.005
+Transaction at time 154278.0 has amount 1504.93, with a normalized amount of 0.3762325
+Transaction at time 155977.0 has amount 198.0, with a normalized amount of 0.0495
+Transaction at time 156212.0 has amount 3.42, with a normalized amount of 0.000855
+Transaction at time 157043.0 has amount 1.0, with a normalized amount of 0.00025
+Transaction at time 158449.0 has amount 15.0, with a normalized amount of 0.00375
+Transaction at time 168675.0 has amount 29.61, with a normalized amount of 0.0074025
+Transaction at time 170027.0 has amount 0.76, with a normalized amount of 0.00019
+Transaction at time 170636.0 has amount 82.95, with a normalized amount of 0.0207375
+
+Priori Knowledge:
+Among these transactions, 30% is anomalous.
+
+Based on the provided domain knowledge, few-shot examples, and transaction descriptions, please identify which transactions are likely to be anomalous or fraudulent. Consider factors such as unusual transaction amounts, suspicious timing patterns, or deviations from normal behavior.
+I need you to analysis all the transactions.
+For each transaction, provide a brief explanation of why you think it is anomalous . If you suspect a transaction to be fraudulent, please indicate the reasoning behind your suspicion.
+
+Please format your response as follows:
+
+Anomaly 1
+Transaction Time:[Time Detected Anomalous]
+Transaction Amount:[Amount]
+Explanation: [Your explanation]
+
+Anomaly 2
+Transaction Time:[Time Detected Anomalous]
+Transaction Amount:[Amount]
+Explanation: [Your explanation]
+
+...
+
+Anomaly N
+Transaction Time:[Time Detected Anomalous]
+Transaction Amount:[Amount]
+Explanation: [Your explanation]
+
+List of Anomalous Transaction Times:
+[List all transaction times identified as anomalous, separated by commas]
+
+Overall Thoughts:
+[Your overall analysis and any additional insights or patterns you noticed]
