@@ -1,0 +1,3 @@
+# Methods
+1. **Chain of Thought (CoT) Prompting**: CoT prompting is a technique where the model is encouraged to generate a series of intermediate reasoning steps before providing the final answer. This helps the model break down complex problems into smaller, more manageable steps, leading to more accurate results.
+2. **Self-Consistency (SC)**: Self-Consistency is a method where multiple outputs are generated for the same input using different random seeds. The most consistent answer across these outputs is then selected as the final answer. This approach helps to reduce the variability in the model's outputs and improve overall accuracy.
