@@ -49,6 +49,6 @@ if __name__ == '__main__':
     hypnogram_file = "E:\Penetrative ai\Penetrative-AI-discovery\Dataset\Physionet\sleep-edf-database-expanded-1.0.0\sleep-edf-database-expanded-1.0.0\sleep-cassette\SC4001EC-Hypnogram.edf"
     # Extract data from a 5-second window starting at 1000 seconds
     start_time = 1000
-    end_time = 2000
+    end_time = 1005
     window_info = extract_info_window(psg_file, hypnogram_file, start_time, end_time,downsample_factor=1000)
     print(window_info)
